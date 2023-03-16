@@ -10,3 +10,4 @@ users = ['John', 'Maxwell', 'Joel', 'David', 'Abraham']
 for user in users:
 	cur.execute("INSERT INTO users (name) VALUES (%s)", (user,))
 	print("New User: {}, with ID: {}".format(user, cur.lastrowid))
+db.commit()
