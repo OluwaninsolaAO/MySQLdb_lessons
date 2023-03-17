@@ -15,3 +15,5 @@ except MySQLdb.Error as e:
 		print("MySQL Error {}: {}".format(e[0], e[1]))
 	except (IndexError, TypeError):
 		print("MySQL Error {}".format(e))
+cur.close()  # close all cursors
+db.close()  # close all databases

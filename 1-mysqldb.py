@@ -11,3 +11,5 @@ for user in users:
 	cur.execute("INSERT INTO users (name) VALUES (%s)", (user,))
 	print("New User: {}, with ID: {}".format(user, cur.lastrowid))
 db.commit()
+cur.close()  # close all cursors
+db.close()  # close all databases

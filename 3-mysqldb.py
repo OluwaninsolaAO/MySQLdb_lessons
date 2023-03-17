@@ -7,3 +7,5 @@ cur = db.cursor()
 numrows = cur.execute("SELECT * FROM users")
 print("Selected {} rows".format(numrows))
 print("Selected {} rows".format(cur.rowcount))
+cur.close()  # close all cursors
+db.close()  # close all databases
