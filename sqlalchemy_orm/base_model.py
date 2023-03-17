@@ -6,9 +6,11 @@ accross all other example scripts in this project.
 import sqlalchemy
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
 Base = sqlalchemy.orm.declarative_base()
 engine = create_engine('sqlite:///:memory:', echo=True)
+Session = sessionmaker(bind=engine)
 
 class User(Base):
     __tablename__ = 'users'
