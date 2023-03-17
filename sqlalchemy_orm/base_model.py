@@ -20,3 +20,6 @@ class User(Base):
 
     def __repr__(self):
         return "[User: <name: {}> <age: {}>]".format(self.name, self.age)
+
+# Create tables in database
+Base.metadata.create_all(engine)
