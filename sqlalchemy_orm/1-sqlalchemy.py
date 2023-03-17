@@ -8,4 +8,6 @@ engine = create_engine('sqlite:///:memory:', echo=True)
 Base = sqlalchemy.orm.declarative_base()
 
 print(type(engine))
+print(engine)
 print(type(Base))
+print(Base)
