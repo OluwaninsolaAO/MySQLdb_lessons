@@ -1,0 +1,26 @@
+2023-03-17 13:03:38,790 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-03-17 13:03:38,790 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2023-03-17 13:03:38,791 INFO sqlalchemy.engine.Engine [raw sql] ()
+2023-03-17 13:03:38,792 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("users")
+2023-03-17 13:03:38,792 INFO sqlalchemy.engine.Engine [raw sql] ()
+2023-03-17 13:03:38,794 INFO sqlalchemy.engine.Engine 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	name VARCHAR(50), 
+	age INTEGER, 
+	PRIMARY KEY (id)
+)
+
+
+2023-03-17 13:03:38,794 INFO sqlalchemy.engine.Engine [no key 0.00020s] ()
+2023-03-17 13:03:38,794 INFO sqlalchemy.engine.Engine COMMIT
+[User(None) <name: Abraham> <age: 100>]
+2023-03-17 13:03:38,799 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-03-17 13:03:38,803 INFO sqlalchemy.engine.Engine INSERT INTO users (name, age) VALUES (?, ?), (?, ?) RETURNING id
+2023-03-17 13:03:38,803 INFO sqlalchemy.engine.Engine [generated in 0.00039s (insertmanyvalues)] ('Abraham', '100', 'Sarah', '90')
+2023-03-17 13:03:38,809 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.name AS users_name, users.age AS users_age 
+FROM users 
+WHERE users.name = ?
+ LIMIT ? OFFSET ?
+2023-03-17 13:03:38,809 INFO sqlalchemy.engine.Engine [generated in 0.00048s] ('Abraham', 1, 0)
+[User(1) <name: Abraham> <age: 100>]
