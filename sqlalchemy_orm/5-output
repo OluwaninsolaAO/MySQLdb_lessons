@@ -1,0 +1,30 @@
+2023-03-17 13:26:45,991 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-03-17 13:26:45,998 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2023-03-17 13:26:45,998 INFO sqlalchemy.engine.Engine [raw sql] ()
+2023-03-17 13:26:45,999 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("users")
+2023-03-17 13:26:45,999 INFO sqlalchemy.engine.Engine [raw sql] ()
+2023-03-17 13:26:46,001 INFO sqlalchemy.engine.Engine 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	name VARCHAR(255), 
+	age INTEGER, 
+	PRIMARY KEY (id)
+)
+
+
+2023-03-17 13:26:46,005 INFO sqlalchemy.engine.Engine [no key 0.00440s] ()
+2023-03-17 13:26:46,006 INFO sqlalchemy.engine.Engine COMMIT
+Pending: IdentitySet([[User: <name: Abraham> <age: 100>], [User: <name: Sarah> <age: 90>], [User: <name: Isaac> <age: 0>]])
+2023-03-17 13:26:46,021 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2023-03-17 13:26:46,032 INFO sqlalchemy.engine.Engine INSERT INTO users (name, age) VALUES (?, ?), (?, ?), (?, ?) RETURNING id
+2023-03-17 13:26:46,032 INFO sqlalchemy.engine.Engine [generated in 0.00035s (insertmanyvalues)] ('Abraham', '100', 'Sarah', '90', 'Isaac', '0')
+2023-03-17 13:26:46,038 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.name AS users_name, users.age AS users_age 
+FROM users 
+WHERE users.name = ?
+ LIMIT ? OFFSET ?
+2023-03-17 13:26:46,039 INFO sqlalchemy.engine.Engine [generated in 0.00048s] ('Isaac', 1, 0)
+Our Isaac: [User: <name: Isaac> <age: 0>]
+New Changes: IdentitySet([[User: <name: Isaac> <age: 1>]])
+2023-03-17 13:26:46,056 INFO sqlalchemy.engine.Engine UPDATE users SET age=? WHERE users.id = ?
+2023-03-17 13:26:46,057 INFO sqlalchemy.engine.Engine [generated in 0.00049s] (1, 3)
+2023-03-17 13:26:46,058 INFO sqlalchemy.engine.Engine COMMIT
