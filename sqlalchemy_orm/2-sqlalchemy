@@ -1,0 +1,4 @@
+>>> from base_model import User
+>>> User.__table__
+Table('users', MetaData(), Column('id', Integer(), table=<users>, primary_key=True, nullable=False), Column('name', String(), table=<users>), Column('age', Integer(), table=<users>), schema=None)
+>>> 
