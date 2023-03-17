@@ -1,0 +1,16 @@
+>>> import sqlalchemy
+>>> from sqlalchemy import create_engine
+>>> type(create_engine)
+<class 'function'>
+>>> engine = create_engine('sqlite:///:memory:', echo=True)
+>>> type(engine)
+<class 'sqlalchemy.engine.base.Engine'>
+>>> from sqlalchemy.ext.declarative import declarative_base
+>>> type(declarative_base)
+<class 'function'>
+>>> Base = declarative_base()
+<stdin>:1: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+>>> Base = sqlalchemy.orm.declarative_base()
+>>> type(Base)
+<class 'sqlalchemy.orm.decl_api.DeclarativeMeta'>
+>>> 
