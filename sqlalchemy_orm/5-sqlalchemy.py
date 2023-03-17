@@ -24,3 +24,7 @@ print("New Changes: {}".format(session.dirty))
 
 # Save new changes
 session.commit()
+
+# Retrieve multiple data from database
+for row in session.query(User).order_by(User.id):
+    print('+ {}: {} ({})'.format(row.id, row.name, row.age))
