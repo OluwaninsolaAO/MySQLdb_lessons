@@ -13,7 +13,7 @@ engine = create_engine('sqlite:///:memory:', echo=True)
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
-    name = Column(String)
+    name = Column(String(255))
     age = Column(Integer)
 
     def __repr__(self):
